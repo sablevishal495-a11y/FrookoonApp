@@ -7,6 +7,8 @@ import {
   Image,
   TouchableOpacity,
   Dimensions,
+  TextInput,
+  Alert,
 } from 'react-native';
 import { useNavigation } from '@react-navigation/native';
 const SCREEN_HEIGHT = Dimensions.get('window').height;
@@ -15,6 +17,7 @@ const SCREEN_HEIGHT = Dimensions.get('window').height;
 const LoginScreen = () => {
     const navigation = useNavigation<any>();
   const [expanded, setExpanded] = useState(false);
+const [phone, setPhone] = useState('');
 
   return (
     <View style={styles.container}>
@@ -68,19 +71,38 @@ const LoginScreen = () => {
             </Text>
 
             <Text style={styles.otpInfo}>
-              WE WILL SEND YOU A 6 DIGIT OTP
+              WE WILL SEND YOU A 4 DIGIT OTP
             </Text>
 
             <View style={styles.inputBox}>
               <Text style={styles.phoneCode}>+91</Text>
+
+              <TextInput
+                style={{ flex: 1, marginLeft: 8 }}
+                placeholder="XXXXXXXXXX"
+                keyboardType="number-pad"
+                maxLength={10}
+                value={phone}
+                onChangeText={setPhone}
+              />
             </View>
+
 
           <TouchableOpacity
             style={styles.continueBtn}
-            onPress={() => navigation.navigate('Otp')}
+            onPress={() => {
+              if (phone.length !== 10) {
+                Alert.alert('Invalid Number', 'Please enter your phone number');
+                return;
+              }
+
+              navigation.navigate('OTP', { phone });
+            }}
           >
             <Text style={styles.continueText}>CONTINUE</Text>
           </TouchableOpacity>
+
+
 
 {/* Divider */}
 <View style={styles.dividerRow}>
@@ -199,7 +221,7 @@ termsCenter: {
 bottomPanel: {
   position: 'absolute',
   bottom: 0,
-  width: '95%',
+  width: '97%',
   backgroundColor: '#ECECEC',
   borderTopLeftRadius: 30,
   borderTopRightRadius: 30,

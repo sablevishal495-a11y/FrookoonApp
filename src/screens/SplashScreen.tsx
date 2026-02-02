@@ -8,7 +8,7 @@ const SplashScreen = ({ navigation }) => {
   useEffect(() => {
     Animated.timing(opacity, {
       toValue: 1,
-      duration: 1200,
+      duration: 1500,
       useNativeDriver: true,
     }).start();
 
@@ -20,7 +20,7 @@ const SplashScreen = ({ navigation }) => {
   return (
     <View style={styles.container}>
       <Animated.View style={{ opacity }}>
-        <Logo size={150} />
+        <Logo size={180} />
       </Animated.View>
     </View>
   );
