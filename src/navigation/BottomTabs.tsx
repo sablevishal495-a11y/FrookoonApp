@@ -4,6 +4,7 @@ import { Text, View, StyleSheet } from 'react-native';
 import Icon from 'react-native-vector-icons/Ionicons';
 import HomeScreen from '../screens/HomeScreen';
 
+
 // If you have these screens, import them:
 // import CategoriesScreen from '../screens/CategoriesScreen';
 // import CartScreen from '../screens/CartScreen';
