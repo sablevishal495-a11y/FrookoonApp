@@ -7,7 +7,7 @@ import HomeScreen from '../screens/HomeScreen';
 
 // If you have these screens, import them:
 // import CategoriesScreen from '../screens/CategoriesScreen';
-// import CartScreen from '../screens/CartScreen';
+import CartScreen from '../screens/CartScreen';
 // import ProfileScreen from '../screens/ProfileScreen';
 
 const Tab = createBottomTabNavigator();
@@ -19,11 +19,7 @@ const CategoriesScreen = () => (
   </View>
 );
 
-const CartScreen = () => (
-  <View style={styles.container}>
-    <Text style={styles.text}>Cart Screen</Text>
-  </View>
-);
+
 
 const ProfileScreen = () => (
   <View style={styles.container}>
